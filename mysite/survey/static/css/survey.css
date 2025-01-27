@@ -1,0 +1,85 @@
+.survey-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+}
+
+.survey-title {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.question-card {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.answer-item {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.answer-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.8rem;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.answer-label:hover {
+    background: #f8f9fa;
+}
+
+.custom-check {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 1rem;
+    position: relative;
+}
+
+input[type="radio"] + .custom-check {
+    border-radius: 50%;
+}
+
+input:checked + .custom-check {
+    background: #2A5CAA;
+    border-color: #2A5CAA;
+}
+
+input:checked + .custom-check::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.submit-btn {
+    background: #2A5CAA;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}

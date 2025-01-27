@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block survey %}
+<article class="survey-container">
+    <!-- Заголовок опроса -->
+    <header class="survey-header">
+        <h1 class="survey-title">{{ survey.title }}</h1>
+        {% if survey.content %}
+        <p class="survey-description">{{ survey.content }}</p>
+        {% endif %}
+    </header>
+
+    <!-- Форма опроса -->
+    <form method="POST" class="survey-form">
+        {% csrf_token %}
+
+        <!-- Список вопросов -->
+        {% for quest in questions %}
+        <section class="question-card">
+            <h2 class="question-title">{{ quest.text }}</h2>
+
+            <!-- Варианты ответов -->
+            <div class="answers-list">
+                {% for answer in answers %}
+                <div class="answer-item">
+                    {% if question.multiple_choice %}
+                    <input type="checkbox"
+                           name="question_{{ quest.id }}"
+                           id="answer_{{ answer.id }}"
+                           value="{{ answer.id }}">
+                    {% else %}
+                    <input type="radio"
+                           name="question_{{ quest.id }}"
+                           id="answer_{{ answer.id }}"
+                           value="{{ answer.id }}"
+                           required>
+                    {% endif %}
+
+                    <label for="answer_{{ answer.id }}" class="answer-label">
+                        <span class="custom-check"></span>
+                        {{ answer.text }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+
+        <!-- Кнопка отправки -->
+        <div class="submit-section">
+            <button type="submit" class="submit-btn">
+                Отправить ответы
+            </button>
+        </div>
+    </form>
+</article>
+{% endblock %}

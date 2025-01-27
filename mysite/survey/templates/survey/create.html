@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block hero %}
+    <form action="{% url "survey:create_survey" %}" method="post">
+            {{ form }}
+    </form>
+{% endblock %}

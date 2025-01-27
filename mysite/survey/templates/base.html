@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}| PollHub</title>
+    <link href=" {% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="poll-header">
+        <div class="poll-logo">
+            {# Заменить на логотип #}
+            <span>PollHub</span>
+        </div>
+        <nav class="poll-nav">
+            <!-- Динамическое меню -->
+            {% block menu %}
+            {% endblock %}
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="poll-container">
+        <h1>{{ page_heading }}</h1>
+
+        <!-- Сетка опросов -->
+        <div class="poll-grid">
+            {% block survey %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="poll-footer">
+        <p>&copy; {{ current_year }} PollHub. Все права защищены</p>
+    </footer>
+</body>
+</html>
