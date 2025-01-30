@@ -22,7 +22,7 @@
 
             <!-- Варианты ответов -->
             <div class="answers-list">
-                {% for answer in answers %}
+                {% for answer in questions_with_answers %}
                 <div class="answer-item">
                     {% if question.multiple_choice %}
                     <input type="checkbox"
@@ -54,5 +54,25 @@
             </button>
         </div>
     </form>
+
 </article>
+{% endblock %}
+
+{% block footer %}
+    {% with comments.count as total_comments %}
+        <h2>
+            {{ total_comments }} comment{{ total_comments|pluralize }}
+        </h2>
+    {% endwith %}
+{% for comment in comments %}
+    <div class="comment">
+        <p class="info">
+            Comment {{ forloop.counter }} by {{ comment.name }}
+            {{ comment.created }}
+        </p>
+        {{ comment.body|linebreaks }}
+    </div>
+{% empty %}
+    <p>There are no comments.</p>
+{% endfor %}
 {% endblock %}

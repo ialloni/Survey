@@ -1,6 +1,7 @@
 from django import forms
+from .models import Comment
 
-class SurveyForm(forms.Form):
-        title = forms.CharField()
-        question = forms.CharField()
-        answer = forms.CharField()
+class CommentForm(forms.ModelForm):
+        class Meta:
+            model = Comment
+            fields = ['name', 'body']

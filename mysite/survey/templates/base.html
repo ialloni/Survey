@@ -34,7 +34,8 @@
 
     <!-- Подвал -->
     <footer class="poll-footer">
-        <p>&copy; {{ current_year }} PollHub. Все права защищены</p>
+{#        <p>&copy; {{ current_year }} PollHub. Все права защищены</p>#}
+        {% block footer %}{% endblock %}
     </footer>
 </body>
 </html>

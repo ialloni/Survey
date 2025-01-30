@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block survey %}
+    <article class="survey-card">
+    {% if comment %}
+        <h2>Ваш комментарий успешно добавлен</h2>
+        <p><a href="{{ survey.get_absolute_url }}">Вернуться к опросу "{{ survey.title }}"</a></p>
+        {% else %}
+        {% include 'survey/includes/comment_form.html' %}
+    {% endif %}
+    </article>
+{% endblock %}
